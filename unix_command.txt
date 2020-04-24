@@ -1,0 +1,31 @@
+Unixコマンド基礎第二章
+10.行数カウント
+wc hightemp.txt
+
+11.タブをスペースに変換
+expand hightemp.txt
+
+12.1列目をcol1.txtに,2列目をcol2.txtに保存
+cut -f 1 hightemp.txt > col1.txt
+cut -f 2 heightemp.txt > col2.txt
+
+13.col1.txt とcol2.txtをマージ
+paste col1.txt col2.txt
+
+14.先頭からN行を出力
+head -n 5 hightemp.txt
+
+15.末尾からのN行を出力
+tail -n 5 hightemp.txt
+
+16.ファイルをN分割する
+split -l 2 hightemp.txt out (2行ごとに分割された)
+
+17.1列目の文字列の異なり
+cat col1.txt | sort | uniq
+
+18.各行を3コラム目の数値の降順にソート
+sort -r -k 3 hightemp.txt
+
+19.各行の1コラム目の文字列の出現頻度を求め,出現頻度の高い順に並べる
+cut -f 1 hightemp.txt | sort | uniq -c |sort -r | cut -c 6- 
